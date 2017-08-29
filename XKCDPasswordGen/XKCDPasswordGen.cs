@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Reflection;
@@ -33,13 +34,13 @@ namespace XKCDPasswordGen
         {
             Validator.RequireValidNumber(numWords);
 
-            var password = "";
+            var words = new List<string>();
             for (var i = 0; i < numWords; i++)
             {
                 var randIndex = RandomInteger(0, Words.Length, crypto);
-                password += Words[randIndex] + separator;
+                words.Add(Words[randIndex]);
             }
-            return password;
+            return string.Join(separator, words);
         }
 
         private static int RandomInteger(int min, int max, bool crypto = true)
