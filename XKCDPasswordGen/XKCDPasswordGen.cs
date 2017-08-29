@@ -6,6 +6,9 @@ using System.Security.Cryptography;
 
 namespace XKCDPasswordGen
 {
+    /// <summary>
+    /// A helper class to generate XKCD style passwords
+    /// </summary>
     public class XkcdPasswordGen
     {
         private static readonly RandomNumberGenerator CryptoRandom;
@@ -23,8 +26,8 @@ namespace XKCDPasswordGen
         /// Generates an XKCD style password
         /// </summary>
         /// <param name="numWords">Number of words to be included in the password</param>
-        /// <param name="separator">String to be inbetween each word (defaults to a space)</param>
-        /// <param name="crypto">Use cryptographicaly secure random number generator</param>
+        /// <param name="separator">String to go inbetween each word (defaults to a space)</param>
+        /// <param name="crypto">Use cryptographicaly secure random number generator (Slower than standard random number generator)</param>
         /// <returns>An XKCD style password</returns>
         public static string Generate(int numWords, string separator = " ", bool crypto = true)
         {
@@ -72,7 +75,6 @@ namespace XKCDPasswordGen
                 }
             }
             return words;
-
         }
     }
 
