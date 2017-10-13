@@ -6,7 +6,7 @@
 
 Randomly returns a given number of words from the [EFF Large Wordlist](https://www.eff.org/deeplinks/2016/07/new-wordlists-random-passphrases)
 
-Idea based of [XKCD 963](https://xkcd.com/963/)
+Idea based of [XKCD 936](https://xkcd.com/936/)
 ## Usage
 
 ```csharp
