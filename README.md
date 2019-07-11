@@ -23,10 +23,11 @@ public class Program(){
 
 ## API
 
-### XkcdPasswordGen.Generate(int numWords, string separator = " ", bool crypto = true)
+### XkcdPasswordGen.Generate(int numWords, string separator = " ", bool crypto = true, bool capital = false)
 
 | Option    | Description                              |
 |-----------|------------------------------------------|
 | numWords | Number of words to be included in the generated password. |
 | separator | String to go inbetween each word in the generated password. |
 | crypto | Use cryptographicaly secure random number generator (Slower than standard random number generator). |
+| capital | Capitalize first letter of password string to satisfy active directory password complexity requirements. |

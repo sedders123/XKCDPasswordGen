@@ -29,8 +29,9 @@ namespace XKCDPasswordGen
         /// <param name="numWords">Number of words to be included in the password</param>
         /// <param name="separator">String to go inbetween each word (defaults to a space)</param>
         /// <param name="crypto">Use cryptographicaly secure random number generator (Slower than standard random number generator)</param>
+        /// <param name="capital">Capitalize first letter of password string to satisfy active directory password complexity requirements</param>
         /// <returns>An XKCD style password</returns>
-        public static string Generate(int numWords, string separator = " ", bool crypto = true)
+        public static string Generate(int numWords, string separator = " ", bool crypto = true, bool capital = false)
         {
             Validator.RequireValidNumber(numWords);
 
@@ -39,6 +40,11 @@ namespace XKCDPasswordGen
             {
                 var randIndex = RandomInteger(0, Words.Length, crypto);
                 words.Add(Words[randIndex]);
+            }
+
+            if(capital)
+            {
+                words[0] = System.Globalization.CultureInfo.CurrentCulture.TextInfo.ToTitleCase(words[0]);
             }
             return string.Join(separator, words);
         }
